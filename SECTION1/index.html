@@ -20,6 +20,13 @@
 
     <div id="app"> <!-- 仮想DOM-->
         <div v-show="!isDisplay">falseになっています</div>
+
+        <div v-if="isDisplay">ifで表示</div>
+        <div v-if="signal == 'red'">赤</div>
+        <div v-else-if="signal === 'yellow'">黄</div>
+        <div v-else-if="signal === 'blue'">青</div>
+        <div v-else>赤青黄ではありません</div>
+
     </div>
 
     <script>
@@ -28,6 +35,7 @@
         data(){
             return {
                 isDisplay: true,
+                signal: 'red',
             }
         }
     })
