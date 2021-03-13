@@ -8,32 +8,37 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
 </head>
 <body>
-    <!-- リアルDOM-->
-    <a id="google_link">googleへのリンク</a>
 
     <div id="app"> <!-- 仮想DOM-->
         {{ message }}
+        <!-- <a v-bind:href="google">googleへのリンク</a>
+        <a :href="google">googleへのリンク</a> -->
+
+        <a :href="book.url">{{book.title}}</a>
+        <br>
+        <!-- <input v-bind="{name:formInput.name, placeholder:formInput.placeholder}"> -->
+        <br>
+        <input v-bind="formInput">
     </div>
 
     <script>
     let app = new Vue({
         el: '#app',
-        data: {
-            message: 'Hello Vue!'
-        },
         data(){
             return {
-                message: 'Hello Vue!'
+                message: 'Hello',
+                google: 'https:google.com',
+                book: {
+                    title: '本のタイトル',
+                    url: 'https://google.com'
+                },
+                formInput: {
+                    name: 'your_name',
+                    placeholder: 'お名前を入力してください'
+                }
             }
         }
     })
-
-    const html = document.querySelector('html');
-    console.dir(html);
-    console.dir(app);
-
-    const googleLink = document.getElementById('google_link');
-    googleLink.href = 'https://www.google.co.jp/';
     </script>
 </body>
 </html>
