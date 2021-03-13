@@ -13,24 +13,31 @@
     }
 </style>
 <body>
-
+    <button onclick="btnClicked()">クリックしてね</button>
     <div id="app"> <!-- 仮想DOM-->
-        <div v-cloak>{{test1}}</div>
-        <div>{{test2}}</div>
+        <button v-on:click="btnClicked">クリックしてね</button>
+        <button @click="btnClicked">クリックしてね</button>
+    </div>
     </div>
 
     <script>
-        setTimeout(() =>{
-            let app = new Vue({
-                el: '#app',
-                data(){
-                    return {
-                        test1: 'v-cloakあり',
-                        test2: 'v-cloakなし',
-                    }
+        let app = new Vue({
+            el: '#app',
+            data(){
+                return {
+                    
                 }
-            })
-        }, 3000)
+            },
+            methods:{
+                btnClicked(){
+                    console.log('Vue クリックされた')
+                }
+            }
+        })
+
+        function btnClicked(){
+            console.log('JS クリックされた')
+        }
     
     </script>
 </body>
