@@ -15,6 +15,11 @@
 <body>
     JavaScript
     <button id="clickEvent" onclick="btnClicked()">クリックしてね</button>
+
+    <!-- Ajax -->
+    <form>
+        <button id="prevent" type="submit">送信</button>
+    </form>
     <div id="app"> <!-- 仮想DOM-->
         Vue
         <button v-on:click="btnClicked">クリックしてね</button>
@@ -54,6 +59,12 @@
 
         const clickEvent = document.getElementById('clickEvent');
         clickEvent.addEventListener('click',(e)=>{
+            console.log(e);
+        })
+
+        const prevent = document.getElementById('prevent');
+        prevent.addEventListener('click',(e)=>{
+            e.preventDefault();
             console.log(e);
         })
     
