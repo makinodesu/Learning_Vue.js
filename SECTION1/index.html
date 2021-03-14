@@ -13,10 +13,14 @@
     }
 </style>
 <body>
-    <button onclick="btnClicked()">クリックしてね</button>
+    JavaScript
+    <button id="clickEvent" onclick="btnClicked()">クリックしてね</button>
     <div id="app"> <!-- 仮想DOM-->
+        Vue
         <button v-on:click="btnClicked">クリックしてね</button>
-        <button @click="btnClicked">クリックしてね</button>
+        <button @click="btnClickedEvent">Eventクリックしてね</button>
+        <button @click="btnClickedArgs(1)">Argsクリックしてね</button>
+        <button @click="btnClickedArgsEvent(2, $event)">ArgsEventクリックしてね</button>
     </div>
     </div>
 
@@ -31,13 +35,27 @@
             methods:{
                 btnClicked(){
                     console.log('Vue クリックされた')
+                },
+                btnClickedEvent(e){
+                    console.log(e)
+                },
+                btnClickedArgs(int){
+                    console.log(int)
+                },
+                btnClickedArgsEvent(int, e){
+                    console.log(int,e)
                 }
             }
         })
 
         function btnClicked(){
-            console.log('JS クリックされた')
+            console.log('JS クリックされた');
         }
+
+        const clickEvent = document.getElementById('clickEvent');
+        clickEvent.addEventListener('click',(e)=>{
+            console.log(e);
+        })
     
     </script>
 </body>
